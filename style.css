@@ -1,3 +1,7 @@
+* {
+    background-color:rgba(49, 55, 61, 0.8);
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: auto auto;
@@ -13,13 +17,30 @@
     text-align: center;
   }
 
-.mdc-button {
-    width: 80%;
+/* .mdc-button {
+    width: 60%;
+    justify-content: center;
+} */
+
+/* #calcButtonDiv {
+    padding: 3%;
+} */
+
+#calculateButton {
+    width: 60%;
+    justify-content: center;
+    margin: 2%;
+}
+
+#clearButton {
+    width: 20%;
     justify-content: center;
 }
 
 #calcButtonDiv {
+    display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .mdc-button__label{
@@ -28,11 +49,11 @@
     font-size: 25px;
   }
 
-.mdc-card {
+/* .mdc-card {
     height: 200px;
     width: 200px;
     background-color: rgba(15, 89, 158, 0.8);
-}
+} */
 
 .items {
     object-fit: fill;

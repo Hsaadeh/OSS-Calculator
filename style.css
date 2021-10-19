@@ -1,0 +1,52 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    /* background-color: #2196F3; */
+    padding: 10px;
+  }
+  
+.grid-item {
+    /* background-color: rgba(15, 89, 158, 0.8); */
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+.mdc-button {
+    width: 80%;
+    justify-content: center;
+}
+
+#calcButtonDiv {
+    justify-content: center;
+}
+
+.mdc-button__label{
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+.mdc-card {
+    height: 200px;
+    width: 200px;
+    background-color: rgba(15, 89, 158, 0.8);
+}
+
+.items {
+    object-fit: fill;
+    height: 150px;
+    width: 150px;
+}
+
+.card_content {
+    height: 150px;
+    width: 150px;
+    object-fit: contain;
+}
+
+.num_input {
+    width: max fit-content;
+}
+

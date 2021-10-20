@@ -12,6 +12,7 @@ body {
     justify-content: center;
     font-weight: bold;
     font-size: 60px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .grid-container {

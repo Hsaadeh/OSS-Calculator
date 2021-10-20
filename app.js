@@ -1,7 +1,8 @@
 // import {MDCRipple} from '@material/ripple';
 
 
-let calculate = document.querySelector("#calculateButton");
+let calculateButton = document.querySelector("#calculateButton");
+let clearButton = document.querySelector("#clearButton");
 
 // cost per page in dollars ---> example: 0.075 is 7.5 cents, 0.75 is 75 cents
 // CPP means "Cost Per Page"
@@ -10,8 +11,18 @@ let LFDCPP = 1.75;
 let BookCPP = 0.25
 let MagCPP = 0.25;
 
+// Is there a better way to initialize the values then clear them with the clear button below
+document.querySelector("#FD33value").value = 0;
+document.querySelector("#FD24value").value = 0;
+document.querySelector("#DABvalue").value = 0;
+document.querySelector("#LDABvalue").value = 0;
+document.querySelector("#OS36value").value = 0;
+document.querySelector("#LFDvalue").value = 0;
+document.querySelector("#B24value").value = 0;
+document.querySelector("#MAGvalue").value = 0;
 
-calculate.addEventListener("click", () => {
+
+calculateButton.addEventListener("click", () => {
     // standard types ---> variable = Number(domElement.value * (number of pages))
     let FD33value = Number(document.querySelector("#FD33value").value * (5800));
     let FD24value = Number(document.querySelector("#FD24value").value * (4200));
@@ -30,4 +41,15 @@ calculate.addEventListener("click", () => {
     let TotalCost = (standardTypeCost + specialTypeCost)
     
     console.log(TotalCost);
+});
+
+clearButton.addEventListener("click", () => {
+    document.querySelector("#FD33value").value = 0;
+    document.querySelector("#FD24value").value = 0;
+    document.querySelector("#DABvalue").value = 0;
+    document.querySelector("#LDABvalue").value = 0;
+    document.querySelector("#OS36value").value = 0;
+    document.querySelector("#LFDvalue").value = 0;
+    document.querySelector("#B24value").value = 0;
+    document.querySelector("#MAGvalue").value = 0;
 })

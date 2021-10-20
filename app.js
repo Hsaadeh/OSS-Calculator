@@ -11,7 +11,7 @@ let LFDCPP = 1.75;
 let BookCPP = 0.25
 let MagCPP = 0.25;
 
-// Is there a better way to initialize the values then clear them with the clear button below
+// Is there a better way to initialize the values then clear them with the clear button below?
 document.querySelector("#FD33value").value = 0;
 document.querySelector("#FD24value").value = 0;
 document.querySelector("#DABvalue").value = 0;

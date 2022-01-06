@@ -1,0 +1,173 @@
+// Function to catch the results of the calculation -- The costs and the amounts of each type
+// let summResults = () => {
+//     // 'summ' is short for 'summary'
+
+//     let client_info = document.querySelector("#client_info").value;
+
+//     let summClientInfo = "Client: " + client_info;
+//     let summ33FD = num33FD + " - 33 inch Files Drawers";
+//     let summFD24 = numFD24 + " - 24 inch Files Drawers";
+//     let summDAB = numDAB + " - Document Archive Boxes";
+//     let summLDAB = numLDAB + " - Large Document Archive Boxes";
+//     let summOS36 = numOS36 + " - 36 inch Open Shelves";
+//     let summLFD = numLFD + " - Large Format documents";
+//     let summB24 = numB24 + " - 24 inch Books";
+//     let summMAG = numMAG + " - Magazines";
+
+//     // let result_list = [summClientInfo, summ33FD, summFD24, summDAB, summLDAB, summOS36, summLFD, summB24, summMAG];
+
+//     return { summClientInfo, summ33FD, summFD24, summDAB, summLDAB, summOS36, summLFD, summB24, summMAG };
+// }
+
+// Function to createCard from the results
+// let createCard = () => {
+//     let client_info = document.querySelector("#client_info").value;
+
+//     // seperator
+//     let line_br = document.createElement('br');
+//     document.querySelector("#result_screen").appendChild(line_br);
+
+//     // card div
+//     let card = document.createElement('div');
+//     card.className = 'card';
+//     card.style = 'width: 800px;';
+//     card.style = 'height: 800px;';
+//     card.style = "color: red";
+//     // card.style = 'backgroundColor : "blue"';
+
+//     // ul
+//     let card_ul = document.createElement('ul');
+//     card_ul.id = "client_summary";
+//     card_ul.style = "list-type: none";
+
+//     // // li elements
+//     let cost = document.createElement('li');
+//     // li_community.id = 'cost';
+//     cost.innerText = client_info;
+//     card_ul.appendChild(cost);
+
+//     let FD33 = document.createElement('li');
+//     FD33.innerText = num33FD + " - 33 inch Files Drawers";
+//     card_ul.appendChild(FD33);
+
+//     let FD24 = document.createElement('li');
+//     // li_community.id = 'list-group-item';
+//     FD24.innerText = numFD24 + " - 24 inch Files Drawers";
+//     card_ul.appendChild(FD24);
+
+//     let DAB = document.createElement('li');
+//     // li_community.id = 'list-group-item';
+//     DAB.innerText = numDAB + " - Document Archive Boxes";
+//     card_ul.appendChild(DAB);
+
+//     let LDAB = document.createElement('li');
+//     // li_community.id = 'list-group-item';
+//     LDAB.innerText = numLDAB + " - Large Document Archive Boxes";
+//     card_ul.appendChild(LDAB);
+
+//     let OS36 = document.createElement('li');
+//     // li_community.id = 'list-group-item';
+//     OS36.innerText = numOS36 + " - 36 inch Open Shelves";
+//     card_ul.appendChild(OS36);
+
+//     let LFD = document.createElement('li');
+//     // li_community.id = 'list-group-item';
+//     LFD.innerText = numLFD + " - Large Format documents";
+//     card_ul.appendChild(LFD);
+
+//     let B24 = document.createElement('li');
+//     // li_community.id = 'list-group-item';
+//     B24.innerText = numB24 + " - 24 inch Books";
+//     card_ul.appendChild(B24);
+
+//     let MAG = document.createElement('li');
+//     // li_community.id = 'list-group-item';
+//     MAG.innerText = numMAG + " - Magazines";
+//     card_ul.appendChild(MAG);
+
+
+//     card.appendChild(card_ul);
+//     document.querySelector("#result_screen").appendChild(card);
+// }
+
+    // display_calculator();
+
+    // For Testing Purposes
+    // console.log("Total Cost = " + TotalCost);
+
+    // console.log("Summary:\n")
+    // console.log(num33FD + " - 33 inch Files Drawers");
+    // console.log(numFD24 + " - 24 inch Files Drawers");
+    // console.log(numDAB + " - Document Archive Boxes");
+    // console.log(numLDAB + " - Large Document Archive Boxes");
+    // console.log(numOS36 + " - 36 inch Open Shelves");
+    // console.log(numLFD + " - Large Format documents");
+    // console.log(numB24 + " - 24 inch Books");
+    // console.log(numMAG + " - Magazines");
+
+
+// Function to append the info to the results page, this way the data doesnt keep piling up
+// let updateResults = () => {
+//     let FD33cost = FD33value * standardCPP;
+//     let FD24cost = FD24value * standardCPP;
+//     let DABcost = DABvalue * standardCPP;
+//     let LDABcost = LDABvalue * standardCPP;
+//     let OS36cost = OS36value * standardCPP;
+//     let LFDcost = LFDvalue * lfdCPP;
+//     let B24cost = B24value * BookCPP;
+//     let MAGcost = MAGvalue * MagCPP;
+
+
+//     let client_info = document.querySelector("#client_info").value;
+//     let summClient = document.querySelector("#summClient");
+
+//     summClient.innerText = "Client: " + client_info;
+
+//     // card div
+//     let card = document.querySelector("#client_summ_div");
+//     card.style = 'width: 800px;';
+//     card.style = 'height: 800px;';
+//     card.style = "color: white";
+
+//     // // li elements
+//     let summFD33 = document.querySelector("#summFD33");
+//     summFD33.innerText = num33FD + " 33 inch Files Drawers $" + FD33cost;
+
+//     let summFD24 = document.querySelector("#summFD24");
+//     summFD24.innerText = numFD24 + " 24 inch Files Drawers $" + FD24cost;
+
+//     let summDAB = document.querySelector("#summDAB");
+//     summDAB.innerText = numDAB + "Document Archive Boxes $" + DABcost;
+
+//     let summLDAB = document.querySelector("#summLDAB");
+//     summLDAB.innerText = numLDAB + " Large Document Archive Boxes $" + LDABcost;
+
+//     let summOS36 = document.querySelector("#summOS36");
+//     summOS36.innerText = numOS36 + " 36 inch Open Shelves $" + OS36cost;
+
+//     let summLFD = document.querySelector("#summLFD");
+//     summLFD.innerText = numLFD + " Large Format documents $" + LFDcost;
+
+//     let summB24 = document.querySelector("#summB24");
+//     summB24.innerText = numB24 + " 24 inch Books $" + B24cost;
+
+//     let summMAG = document.querySelector("#summMAG");
+//     summMAG.innerText = numMAG + " Magazines $" + MAGcost;
+// }
+
+
+  <!-- <div id="result_screen">
+    <div id="client_summ_div">
+      <ul id="client_summary">
+        <li id="summClient"></li>
+        <li id="summFD33"></li>
+        <li id="summFD24"></li>
+        <li id="summDAB"></li>
+        <li id="summLDAB"></li>
+        <li id="summOS36"></li>
+        <li id="summLFD"></li>
+        <li id="summB24"></li>
+        <li id="summMAG"></li>
+        <li id="totalCost"></li>
+      </ul>
+    </div> -->

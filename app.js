@@ -31,8 +31,22 @@ let MAG_dec = document.querySelector("#MAG_dec");
 // CPP means "Cost Per Page"
 let standardCPP = 0.075;
 let lfdCPP = 1.75;
-let BookCPP = 0.25
+let BookCPP = 0.25;
 let MagCPP = 0.25;
+
+let shredCPP = 0.02;
+// let scan_rate = 40;
+
+/////////////// NEW COSTS ////////////////////
+let FD33c = 420.0;
+let FD24c = 315.0;
+let DABc = 187.5;
+let LDABc = 315.0;
+let OS36c = 427.5;
+let LFDc = 1.75;
+let B24c = 75.0;
+let MAGc = 20.0;
+/////////////////////////////////////////////
 
 // Initialized values
 let FD33value = document.querySelector("#FD33value").value = 0;
@@ -44,8 +58,8 @@ let LFDvalue = document.querySelector("#LFDvalue").value = 0;
 let B24value = document.querySelector("#B24value").value = 0;
 let MAGvalue = document.querySelector("#MAGvalue").value = 0;
 
-let standardTypeCost = ((FD33value + FD24value + DABvalue + LDABvalue + OS36value) * standardCPP);
-let specialTypeCost = ((LFDvalue * lfdCPP) + (B24value * BookCPP) + (MAGvalue * MagCPP));
+let standardTypeCost = (FD33value + FD24value + DABvalue + LDABvalue + OS36value);
+let specialTypeCost = ((LFDvalue * LFDc) + (B24value * B24c) + (MAGvalue * MAGc));
 
 let TotalCost = (standardTypeCost + specialTypeCost);
 
@@ -194,15 +208,15 @@ let updateInvoice = () => {
     let tB24cost = document.querySelector("#B24cost");
     let tMAGcost = document.querySelector("#MAGcost");
 
-    // The calculated cost breakdown
-    let FD33cost = FD33value * standardCPP;
-    let FD24cost = FD24value * standardCPP;
-    let DABcost = DABvalue * standardCPP;
-    let LDABcost = LDABvalue * standardCPP;
-    let OS36cost = OS36value * standardCPP;
-    let LFDcost = LFDvalue * lfdCPP;
-    let B24cost = B24value * BookCPP;
-    let MAGcost = MAGvalue * MagCPP;
+    // The calculated cost breakdown //////////////////////
+    let FD33cost = FD33c * num33FD;
+    let FD24cost = FD24c * numFD24;
+    let DABcost = DABc * numDAB;
+    let LDABcost = LDABc * numLDAB;
+    let OS36cost = OS36c * numOS36;
+    let LFDcost = LFDc * numLFD;
+    let B24cost = B24c * numB24;
+    let MAGcost = MAGc * numMAG;
 
     let client_info = document.querySelector("#client_info").value;
     let client_summ = document.querySelector("#client_summ");
@@ -261,9 +275,13 @@ let calculate_time = () => {
     let minutes = Math.floor((totalSeconds / 60) % 60);
     let seconds = Math.floor(totalSeconds % 60);
 
+    let shredCost = totalPages * shredCPP;
+
     let estTime = document.querySelector("#estTime");
-    let estimatedTimestring = totalPages + " pages " + hours + " hours " + minutes + " minutes " + seconds + " seconds";
+    let estimatedTimestring = "[" + totalPages + " pages ]" + " [" + hours + " hours " + minutes + " minutes] " + " [Shred Cost: " + shredCost + "]";
     estTime.innerText = estimatedTimestring;
+
+
 
     // console.log(estimatedTimestring);
 };
@@ -272,19 +290,19 @@ let calculate_time = () => {
 // Calculate Button
 calculateButton.addEventListener("click", () => {
     // standard types ---> variable = Number(domElement.value * (number of pages))
-    FD33value = Number(document.querySelector("#FD33value").value * (5800));
-    FD24value = Number(document.querySelector("#FD24value").value * (4200));
-    DABvalue = Number(document.querySelector("#DABvalue").value * (2700));
-    LDABvalue = Number(document.querySelector("#LDABvalue").value * (4200));
-    OS36value = Number(document.querySelector("#OS36value").value * (6300));
+    FD33value = Number(document.querySelector("#FD33value").value * (FD33c));
+    FD24value = Number(document.querySelector("#FD24value").value * (FD24c));
+    DABvalue = Number(document.querySelector("#DABvalue").value * (DABc));
+    LDABvalue = Number(document.querySelector("#LDABvalue").value * (LDABc));
+    OS36value = Number(document.querySelector("#OS36value").value * (OS36c));
 
     // special types
-    LFDvalue = Number(document.querySelector("#LFDvalue").value * (1));
-    B24value = Number(document.querySelector("#B24value").value * (300));
-    MAGvalue = Number(document.querySelector("#MAGvalue").value * (80));
+    LFDvalue = Number(document.querySelector("#LFDvalue").value * (LFDc));
+    B24value = Number(document.querySelector("#B24value").value * (B24c));
+    MAGvalue = Number(document.querySelector("#MAGvalue").value * (MAGc));
 
-    standardTypeCost = ((FD33value + FD24value + DABvalue + LDABvalue + OS36value) * standardCPP);
-    specialTypeCost = ((LFDvalue * lfdCPP) + (B24value * BookCPP) + (MAGvalue * MagCPP));
+    standardTypeCost = (FD33value + FD24value + DABvalue + LDABvalue + OS36value);
+    specialTypeCost = ((LFDvalue) + (B24value) + (MAGvalue));
 
     TotalCost = (standardTypeCost + specialTypeCost);
 
@@ -296,6 +314,32 @@ calculateButton.addEventListener("click", () => {
     updateInvoice();
     display_results();
 });
+// calculateButton.addEventListener("click", () => {
+//     // standard types ---> variable = Number(domElement.value * (number of pages))
+//     FD33value = Number(document.querySelector("#FD33value").value * (5800));
+//     FD24value = Number(document.querySelector("#FD24value").value * (4200));
+//     DABvalue = Number(document.querySelector("#DABvalue").value * (2700));
+//     LDABvalue = Number(document.querySelector("#LDABvalue").value * (4200));
+//     OS36value = Number(document.querySelector("#OS36value").value * (6300));
+
+//     // special types
+//     LFDvalue = Number(document.querySelector("#LFDvalue").value * (1));
+//     B24value = Number(document.querySelector("#B24value").value * (300));
+//     MAGvalue = Number(document.querySelector("#MAGvalue").value * (80));
+
+//     standardTypeCost = ((FD33value + FD24value + DABvalue + LDABvalue + OS36value) * standardCPP);
+//     specialTypeCost = ((LFDvalue * lfdCPP) + (B24value * BookCPP) + (MAGvalue * MagCPP));
+
+//     TotalCost = (standardTypeCost + specialTypeCost);
+
+//     let resultTotal = document.querySelector("#totalCost");
+//     resultTotal.innerText = "$" + TotalCost;
+//     resultTotal.style = "font-weight: bold";
+
+//     calculate_time();
+//     updateInvoice();
+//     display_results();
+// });
 
 // Clear Button
 clearButton.addEventListener("click", () => {
